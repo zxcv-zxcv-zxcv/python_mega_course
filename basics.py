@@ -1,4 +1,7 @@
 # List iterations
+import time
+import pandas
+import os
 temps = [221, 234, 3400, 230]
 
 new_temps = [temp / 10 for temp in temps]
@@ -12,21 +15,26 @@ new_temps = [temp / 10 for temp in temps if temp != -9999]
 
 print(new_temps)
 
+
 def foo(input):
     input = [integer for integer in input if type(integer) == int]
     return input
 
+
 def foo1(input):
     input = [integer for integer in input
-                if integer > 0]
+             if integer > 0]
     return input
+
 
 # List iterations with ifelse
 new_temps = [temp / 10 if temp != -9999 else 0 for temp in temps]
 
+
 def foo2(input):
     input = [integer if type(integer) == int else 0 for integer in input]
     return input
+
 
 def foo3(input):
     sum = 0.0
@@ -37,14 +45,18 @@ def foo3(input):
 
 # Better way for above
 
+
 def foo4(lst):
     return sum([float(i) for i in lst])
+
 
 def area(a, b):
     return a * b
 
+
 def foo5(string1, string2):
     return string1.concatenate(), string2.concatenate()
+
 
 def mean(*args):
     return args
@@ -71,6 +83,7 @@ def foo6(character, filepath):
         count = content.count(character)
     return count
 
+
 def appending():
     with open("files/fruits.txt", "a+") as myfile:
         myfile.write("\nOkra")
@@ -78,9 +91,6 @@ def appending():
         content = myfile.read()
     print(content)
 
-import time
-import os
-import pandas
 
 while True:
     if os.path.exists("files/temps_today.csv"):
