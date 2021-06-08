@@ -40,7 +40,7 @@ def foo3(input):
     sum = 0.0
     input = [float(decimal) for decimal in input]
     for x in input:
-        sum += x
+        sum += 1
     return sum
 
 # Better way for above
