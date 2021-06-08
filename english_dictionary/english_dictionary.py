@@ -3,7 +3,7 @@
 # Returns multiple definition if the word has multiple
 # If user mistypes a word that is similar, ask the user if it meant
 # X word. 
-# If user types jumbles, return word is not an word
+# If user types jumbles, return word is not an word TO_DO
 # 1st Revision. Does not do mistyping finding
 import json
 import difflib
@@ -14,9 +14,14 @@ def definition(word):
     word = word.lower()
     if word in data:
         return ' '.join(data.get(word))
-    else:
-        return word + ' is not a word.'
-
+    elif not word in data:
+        most_similar = get_close_matches(word, data.keys())[0]
+        inputa = input("Did you mean this word?: " + most_similar + " \nType 'Y' or 'N': ")
+        if inputa.lower() == 'y':
+            word = most_similar
+            return definition(word)
+        else:
+            return 'This word doesn''t exist'
 
 while True:
     user_input = input("Say word: ")
