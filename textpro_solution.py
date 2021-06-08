@@ -7,6 +7,7 @@ def sentence_maker(phrase):
     else:
         return "{}.".format(capitalised)
 
+
 results = []
 
 while True:
